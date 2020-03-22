@@ -1,0 +1,49 @@
+version: '2'
+services:
+  pdi-carte-master:
+    image: pdi-ce-carte-local
+    command: /bin/bash ./docker-entrypoint.sh master
+    ports:
+      - "8181:8181"
+      - "5005:5005"
+    environment:
+      MASTER_CONTEXT:
+      MASTER_NAME: pdi-carte-master
+      MASTER_HOST: pdi-carte-master
+      SERVER_NAME: pdi-carte-master
+      SERVER_HOST: pdi-carte-master
+      SERVER_PORT: 8181
+      SERVER_USER: cluster
+      SERVER_PASSWD: cluster
+      ADMIN_PASSWD: cluster
+      PENTAHO_DI_JAVA_OPTIONS: -Xms1024m -Xmx2048m -XX:MaxPermSize=256m -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005
+    security_opt:
+      - seccomp:unconfined
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 65535
+        hard: 65535
+    restart: always
+
+  pdi_carte_worker:
+    image: pdi-ce-carte-local
+    command: /bin/bash ./docker-entrypoint.sh slave
+    ports:
+      - 8182
+#      - "5005:5005"
+    environment:
+      MASTER_CONTEXT:
+      MASTER_NAME: pdi-carte-master
+      MASTER_HOST: pdi-carte-master
+      MASTER_USER: cluster
+      MASTER_PASSWD: cluster
+      MASTER_PORT: 8181
+      SERVER_HOST: pdi_carte_worker 
+      SERVER_PORT: 8182
+      SERVER_USER: cluster
+      SERVER_PASSWD: cluster
+      ADMIN_PASSWD: cluster
+#      PENTAHO_DI_JAVA_OPTIONS: -Xms1024m -Xmx2048m -XX:MaxPermSize=256m -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005
+    links:
+      - pdi-carte-master 

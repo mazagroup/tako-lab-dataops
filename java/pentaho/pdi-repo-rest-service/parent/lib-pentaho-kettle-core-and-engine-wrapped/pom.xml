@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>parent</artifactId>
+		<groupId>org.tako.etl</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>lib-pentaho-kettle-core-and-engine-wrapped</artifactId>
+	<description>pentaho-kettle-{core+engine} wrapped</description>
+	<version>9.1.0.0-67</version>
+
+
+	<properties>
+	    <pentaho-kettle.version>9.1.0.0-67</pentaho-kettle.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+	        <groupId>pentaho-kettle</groupId>
+	        <artifactId>kettle-engine</artifactId>
+	        <version>${pentaho-kettle.version}</version>
+	        <classifier>sources</classifier>
+	    </dependency>
+	   	<dependency>
+	        <groupId>pentaho-kettle</groupId>
+	        <artifactId>kettle-engine</artifactId>
+	        <version>${pentaho-kettle.version}</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>pentaho-kettle</groupId>
+	        <artifactId>kettle-core</artifactId>
+	        <version>${pentaho-kettle.version}</version>
+	        <classifier>sources</classifier>
+	    </dependency>	 
+	    <dependency>
+	        <groupId>pentaho-kettle</groupId>
+	        <artifactId>kettle-core</artifactId>
+	        <version>${pentaho-kettle.version}</version>
+	    </dependency>	       
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>biz.aQute.bnd</groupId>
+				<artifactId>bnd-maven-plugin</artifactId>
+			    <configuration>
+        			<bndfile>bnd/wrapper.bnd</bndfile>
+			    </configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/dependencies</outputDirectory>
+							<overWriteReleases>false</overWriteReleases>
+							<overWriteSnapshots>false</overWriteSnapshots>
+							<overWriteIfNewer>true</overWriteIfNewer>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>			
+		</plugins>
+	</build>
+</project>

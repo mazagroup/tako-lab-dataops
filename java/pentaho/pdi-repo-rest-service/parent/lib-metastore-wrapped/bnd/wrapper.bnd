@@ -1,0 +1,5 @@
+Import-Package: !org.pentaho.metastore.*,\
+ *
+-includeresource: @metastore-9.1.0.0-67.jar
+-exportcontents: org.pentaho.metastore.*;version='9.1.0.0-67'
+-sources: true

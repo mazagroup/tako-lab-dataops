@@ -1,0 +1,8 @@
+Import-Package: !org.apache.*,\
+ !org.w3c.*,\
+ !sun.io,\
+ *
+-includeresource: @xercesImpl-2.12.0.jar
+-exportcontents: org.apache.*;version='2.12.0',\
+	org.w3c.*.*;version='2.12.0'
+-sources: true

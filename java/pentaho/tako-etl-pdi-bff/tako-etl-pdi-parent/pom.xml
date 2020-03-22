@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.pentaho</groupId>
+    <artifactId>pentaho-ce-jar-parent-pom</artifactId>
+    <version>9.1.0.0-71</version>
+  </parent>
+  <groupId>tako-etl-pdi</groupId>
+  <artifactId>tako-etl-pdi-parent</artifactId>
+  <packaging>pom</packaging>
+  <name>Pentaho Data Integration SDK Parent POM</name>
+  <modules>
+    <module>../carte-extended</module>
+  </modules>
+  <properties>
+    <eula-wrap_create-dist-phase></eula-wrap_create-dist-phase>
+    <eula-wrap_assign-deps-to-properties-phase></eula-wrap_assign-deps-to-properties-phase>
+    <mockito.version>1.10.19</mockito.version>
+    <pentaho-metadata.version>9.1.0.0-71</pentaho-metadata.version>
+    <eula-wrap_create-izpack-installer-jar-phase></eula-wrap_create-izpack-installer-jar-phase>
+    <pdi.version>9.1.0.0-71</pdi.version>
+    <eula-wrap_attach-dist-phase></eula-wrap_attach-dist-phase>
+    <junit.version>4.12</junit.version>
+  </properties>
+
+
+  <repositories>
+    <repository>
+      <id>pentaho-public</id>
+      <name>Pentaho Public</name>
+      <url>http://nexus.pentaho.org/content/groups/omni/</url>
+      <releases>
+        <enabled>true</enabled>
+        <updatePolicy>daily</updatePolicy>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>interval:15</updatePolicy>
+      </snapshots>
+    </repository>
+  </repositories>
+
+</project>

@@ -1,0 +1,5 @@
+Import-Package: !org.owasp.encoder.*,\
+ *
+-includeresource: @encoder-1.2.jar
+-exportcontents: org.owasp.encoder.*;version='1.2'
+-sources: true

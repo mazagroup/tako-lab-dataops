@@ -1,0 +1,6 @@
+Import-Package: !org.pentaho.*,\
+ *
+-includeresource: @kettle-engine-9.1.0.0-67.jar,\
+OSGI-OPT/=@kettle-engine-9.1.0.0-67-sources.jar
+-exportcontents: org.pentaho.*;version='9.1.0.0-67'
+-sources: true

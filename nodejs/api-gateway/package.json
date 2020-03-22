@@ -1,0 +1,19 @@
+{
+  "name": "api-gateway",
+  "version": "1.0.0",
+  "description": "tako api gateway",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "fast-gateway": "^2.1.3",
+    "pdi-kettle-carte-hook-module": "file:pdi-kettle-carte-hook-module",
+    "pump": "^3.0.0",
+    "stream-to-array": "^2.3.0",
+    "xml2json": "^0.12.0"
+  }
+}

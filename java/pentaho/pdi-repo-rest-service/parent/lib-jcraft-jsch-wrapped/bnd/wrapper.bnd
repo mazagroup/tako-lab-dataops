@@ -1,0 +1,5 @@
+Import-Package: !com.jcraft.jsch.*,\
+ *
+-includeresource: @jsch-0.1.54.jar
+-exportcontents: com.jcraft.jsch.*;version='0.1.54'
+-sources: true

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>tako-etl-pdi</groupId>
+		<artifactId>tako-etl-pdi-parent</artifactId>
+		<version>9.1.0.0-71</version>
+		<relativePath>../tako-etl-pdi-parent</relativePath>
+	</parent>
+
+	<artifactId>carte-ext-features</artifactId>
+	<packaging>pom</packaging>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>tako-etl-pdi</groupId>
+			<artifactId>carte-ext-repoexplorer</artifactId>
+			<version>9.1.0.0-71</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.karaf.tooling</groupId>
+				<artifactId>features-maven-plugin</artifactId>
+				<version>2.4.1</version>
+				<extensions>true</extensions>
+				<executions>
+					<execution>
+						<id>generate</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>generate-features-xml</goal>
+						</goals>
+						<configuration>
+<!-- 							<kernelVersion>3.0.3</kernelVersion> -->
+							<outputFile>target/features.xml</outputFile>
+						</configuration>
+					</execution>
+<!-- 					<execution>
+						<id>create-kar</id>
+						<phase>package</phase>
+						<goals>
+							<goal>create-kar</goal>
+						</goals>
+						<configuration>
+							<featuresFile>target/features.xml</featuresFile>
+						</configuration>
+					</execution> -->
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.maven.wagon</groupId>
+						<artifactId>wagon-http-lightweight</artifactId>
+						<version>2.6</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
+	<repositories>
+		<repository>
+			<id>pentaho.resolve.repo</id>
+			<name>Pentaho Group Resolve Repository</name>
+			<url>http://nexus.pentaho.org/content/groups/omni/</url>
+			<releases>
+				<updatePolicy>always</updatePolicy>
+<!-- 				<checksumPolicy>fail</checksumPolicy> -->
+			</releases>
+			<snapshots>
+				<updatePolicy>always</updatePolicy>
+<!-- 				<checksumPolicy>fail</checksumPolicy> -->
+			</snapshots>
+		</repository>
+		<repository>
+			<id>repo.pentaho.org</id>
+			<name>repo.pentaho.org</name>
+			<url>http://repository.pentaho.org/artifactory/pentaho</url>
+		</repository>
+	</repositories>
+</project>
+

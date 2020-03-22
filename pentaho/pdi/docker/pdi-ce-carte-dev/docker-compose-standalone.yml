@@ -1,0 +1,28 @@
+version: '3'
+services:
+  app:
+    image: pdi-ce-carte-dev 
+    command: /bin/bash  ./carte.sh 127.0.0.1 7373 -u cluster -p cluster
+    ports:
+      - "7373:7373"
+      - "9051:9051"
+    volumes:
+      - /Users/mduduzikeswa/devlearn/pentaho/pdi/repositories:/opt/pentaho/repositories:rw
+      - ./data/logs:/opt/pentaho/data-integration/logs:rw
+      - ./data/cache:/opt/pentaho/data-integration/system/karaf/caches:rw
+      - ./data/data:/opt/pentaho/data-integration/system/karaf/data:rw
+      - ./data/deploy:/opt/pentaho/data-integration/dev:rw
+    environment:
+      SERVER_NAME: pdi-carte-master 
+      SERVER_HOST: 0.0.0.0
+      SERVER_PORT: 7373
+      SERVER_USER: cluster
+      SERVER_PASSWD: cluster
+    security_opt:
+      - seccomp:unconfined
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 65535
+        hard: 65535
+    restart: always

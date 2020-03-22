@@ -1,0 +1,10 @@
+Import-Package: !org.w3c.*,\
+ !org.xml.*,\
+ !javax.xml.*,\
+ *
+DynamicImport-Package: *
+-includeresource: @xml-apis-1.4.01.jar
+-exportcontents: org.w3c.*;version='1.4.01',\
+	org.xml.*;version='1.4.01',\
+	javax.xml.*;version='1.4.01'
+-sources: true

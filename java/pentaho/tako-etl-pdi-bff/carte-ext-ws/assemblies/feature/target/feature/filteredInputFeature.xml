@@ -1,0 +1,21 @@
+<features name="carte-ext-ws-bundle-repo" xmlns="http://karaf.apache.org/xmlns/features/v1.2.1">
+
+  <feature name="carte-ext-ws-bundle" version="9.1.0.0-71">
+    <feature>kar</feature>
+    <feature>pentaho-requirejs-osgi-manager</feature>
+    <details>parent pom for Pentaho CE Java projects</details>
+    <!-- START client side dependencies -->
+    <bundle>pentaho-webjars:mvn:org.webjars.bower/angular/1.5.8</bundle>
+    <bundle>pentaho-webjars:mvn:org.webjars.bower/angular-route/1.5.8</bundle>
+    <bundle>pentaho-webjars:mvn:org.webjars.bower/angular-sanitize/1.5.8</bundle>
+    <bundle>pentaho-webjars:mvn:org.webjars.bower/angular-translate/2.12.1</bundle>
+    <bundle>pentaho-webjars:mvn:org.webjars.bower/angular-animate/1.5.8</bundle>
+    <bundle>pentaho-webjars:mvn:org.webjars.bower/angular-ui-router/0.4.2</bundle>
+    <bundle>pentaho-webjars:mvn:org.webjars.bower/angular-i18n/1.5.8</bundle>
+    <bundle>pentaho-webjars:mvn:org.webjars.bower/require-css/0.1.8</bundle>
+    <bundle>pentaho-webjars:mvn:org.webjars.bower/requirejs-text/2.0.10</bundle>
+    <bundle>pentaho-webjars:mvn:org.webjars.bower/dojo/1.9.2</bundle>
+    <!-- END -->
+  </feature>
+
+</features>

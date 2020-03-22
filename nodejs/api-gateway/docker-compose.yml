@@ -1,0 +1,14 @@
+version: '3'
+services:
+  app:
+    image: tako-api-gateway
+    ports:
+      - "9191:9191"
+    security_opt:
+      - seccomp:unconfined
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 65535
+        hard: 65535
+    restart: always
